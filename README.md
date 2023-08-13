@@ -1,4 +1,6 @@
 By Ankitha Mallekav
+
+
 Features:
 Event List: A list that displays all the saved events with their name and date.
 Add Event: A simple form to input and save a new event.
@@ -13,16 +15,14 @@ Steps:
 Clone the repository:
 bash
 
-git clone https://github.com/[YourGitHubUsername]/purdue-event-reminder.git
+git clone 
 Navigate to the project directory:
-bash
+
 cd purdue-event-reminder
 Install necessary dependencies:
-bash
 
 npm install
 Start the server:
-bash
 
 node server.js
 Open index.html in your preferred browser.
