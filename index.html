@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purdue Event Reminder</title>
+</head>
+<body>
+    <h1>Purdue Event Reminder</h1>
+
+    <form id="eventForm">
+        <label for="name">Event Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <input type="submit" value="Add Event">
+    </form>
+
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = {
+                name: e.target.name.value,
+                date: e.target.date.value
+            };
+
+            fetch('/events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Event added:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
